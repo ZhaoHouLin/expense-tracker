@@ -14,10 +14,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(methodOverride("_method"));
 
-app.get("/", (req, res) => {
-  res.render("index");
-});
-
 mongoose.connect("mongodb://localhost/record", {
   useNewUrlParser: true,
   useCreateIndex: true

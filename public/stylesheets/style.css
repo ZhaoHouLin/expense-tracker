@@ -1,0 +1,79 @@
+* {
+  font-family: '微軟正黑體';
+  transition: 0.5s;
+  box-sizing: border-box;
+  user-select: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+.total {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  flex-direction: column;
+}
+.total .filter {
+  margin: 16px;
+}
+.list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+}
+.list .item {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  border: 1px solid #000;
+  width: 600px;
+  height: 60px;
+  border-radius: 16px;
+}
+.list .item i {
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100%;
+  border-radius: 16px;
+}
+.list .item .info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 200px;
+  height: 100%;
+  border-radius: 16px;
+}
+.list .item h4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 100%;
+  border-radius: 16px;
+}
+.list .item .set {
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 100%;
+  border-radius: 16px;
+  margin-right: 0;
+}
+.list .item .set a,
+.list .item .set button {
+  text-decoration: none;
+  color: #222;
+  font-size: 16px;
+  margin: 4px;
+  border: none;
+  background-color: #fff;
+}

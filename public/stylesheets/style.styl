@@ -1,0 +1,57 @@
+$color_brown= #9b4b4b
+
+*
+  font-family '微軟正黑體'
+  transition 0.5s
+  box-sizing border-box
+  user-select: none
+  outline: none
+  margin 0
+  padding 0
+  
+size(w=100%,h=w,bdrs=16px) 
+  width w
+  height h
+  border-radius bdrs
+  
+flexCenter(j=center,a=j)
+  display flex
+  justify-content j
+  align-items a
+
+.total    
+  flexCenter()
+  margin-top 20px
+  flex-direction column
+  .filter
+    margin 16px
+.list
+  flexCenter()
+  margin-top 16px
+  .item
+    flexCenter(j=start)
+    border 1px solid #000
+    size(600px,60px)
+    i
+      font-size 40px
+      flexCenter()
+      size(100px,100%)
+    .info
+      flexCenter()
+      flex-direction column
+      size(200px,100%)
+    h4
+      flexCenter()
+      size(200px,100%)
+    .set
+      right 0
+      flexCenter()
+      size(200px,100%)
+      margin-right 0
+      a,button
+        text-decoration none
+        color #222
+        font-size 16px
+        margin 4px
+        border none
+        background-color #fff
