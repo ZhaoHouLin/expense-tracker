@@ -13,9 +13,9 @@ router.get("/new", (req, res) => {
 
 router.post("/", (req, res) => {
   const record = Record({
-    name: req.body.name,
+    name: req.body.name
     // 儲存 userId
-    userId: req.user._id
+    // userId: req.user._id
   });
   record.save(err => {
     if (err) return console.error(err);

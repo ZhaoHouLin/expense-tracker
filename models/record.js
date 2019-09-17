@@ -7,8 +7,8 @@ const recordSchema = new Schema({
     required: true
   },
   category: {
-    type: String,
-    required: true
+    type: String
+    // required: true
   },
   date: {
     type: Date,
@@ -17,13 +17,13 @@ const recordSchema = new Schema({
   amount: {
     type: Number,
     required: true
-  },
-  userId: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
-    index: true,
-    required: true
   }
+  // userId: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: "User",
+  //   index: true,
+  //   required: true
+  // }
 });
 
 module.exports = mongoose.model("Record", recordSchema);
