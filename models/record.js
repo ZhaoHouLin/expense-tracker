@@ -11,19 +11,19 @@ const recordSchema = new Schema({
     // required: true
   },
   date: {
-    type: Date,
+    type: String,
     required: true
   },
   amount: {
     type: Number,
     required: true
   },
-  userId: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
-    index: true,
-    required: true
-  }
+  // userId: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: "User",
+  //   index: true,
+  //   required: true
+  // }
 });
 
 module.exports = mongoose.model("Record", recordSchema);

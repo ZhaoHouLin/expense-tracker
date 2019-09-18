@@ -5,7 +5,7 @@ const Record = require("../models/record");
 // 設定路由
 // Record 首頁
 router.get("/", (req, res) => {
-  Record.find((err, records) => {
+  Record.find({}).sort({ name: 'asc' }).exec((err, records) => {
     if (err) return console.error(err);
     return res.render("index", { records: records });
   });
