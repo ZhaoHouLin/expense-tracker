@@ -21,6 +21,7 @@ router.get("/:id", (req, res) => {
 // 新增一筆  Record
 router.post("/", (req, res) => {
   const record = new Record({
+    // userId: req.body.id,
     name: req.body.name,
     category: req.body.category,
     date: req.body.date,
@@ -33,11 +34,24 @@ router.post("/", (req, res) => {
 });
 // 修改 Record 頁面
 router.get("/:id/edit", (req, res) => {
-  res.send("修改 Record 頁面");
+  Record.findById(req.params.id, (err, record) => {
+    if (err) return console.error(err);
+    return res.render("edit", { record: record });
+  });
 });
 // 修改 Record
 router.post("/:id/edit", (req, res) => {
-  res.send("修改 Record");
+  Record.findById(req.params.id, (err, record) => {
+    if (err) return console.error(err);
+    record.name = req.body.name;
+    category = req.body.category;
+    date = req.body.date;
+    amount = req.body.amount;
+    record.save(err => {
+      if (err) return console.error(err);
+      return res.redirect(`/`);
+    });
+  });
 });
 // 刪除 Record
 router.post("/:id/delete", (req, res) => {
