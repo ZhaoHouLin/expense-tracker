@@ -25,10 +25,13 @@ flexCenter(j=center,a=j)
   flex-direction column
   .filter
     margin 16px
-.list
+
+.itemlist
   flexCenter()
+  flex-direction column
   margin-top 16px
   .item
+    margin-bottom 16px
     flexCenter(j=start)
     border 1px solid #000
     size(600px,60px)
@@ -55,3 +58,24 @@ flexCenter(j=center,a=j)
         margin 4px
         border none
         background-color #fff
+
+
+.add
+  flexCenter()
+  flex-direction column
+  margin 16px
+  h1
+    margin-bottom 8px
+  span
+    color red
+  button
+    border none
+    background-color #fff
+    
+  .addGroup
+    margin 4px
+    size(200px,100%)
+    flexCenter()
+    justify-content flex-start
+    label
+      margin-right 8px

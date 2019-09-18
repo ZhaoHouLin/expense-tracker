@@ -17,13 +17,15 @@
 .total .filter {
   margin: 16px;
 }
-.list {
+.itemlist {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   margin-top: 16px;
 }
-.list .item {
+.itemlist .item {
+  margin-bottom: 16px;
   display: flex;
   justify-content: start;
   align-items: start;
@@ -32,7 +34,7 @@
   height: 60px;
   border-radius: 16px;
 }
-.list .item i {
+.itemlist .item i {
   font-size: 40px;
   display: flex;
   justify-content: center;
@@ -41,7 +43,7 @@
   height: 100%;
   border-radius: 16px;
 }
-.list .item .info {
+.itemlist .item .info {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,7 +52,7 @@
   height: 100%;
   border-radius: 16px;
 }
-.list .item h4 {
+.itemlist .item h4 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,7 +60,7 @@
   height: 100%;
   border-radius: 16px;
 }
-.list .item .set {
+.itemlist .item .set {
   right: 0;
   display: flex;
   justify-content: center;
@@ -68,12 +70,42 @@
   border-radius: 16px;
   margin-right: 0;
 }
-.list .item .set a,
-.list .item .set button {
+.itemlist .item .set a,
+.itemlist .item .set button {
   text-decoration: none;
   color: #222;
   font-size: 16px;
   margin: 4px;
   border: none;
   background-color: #fff;
+}
+.add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 16px;
+}
+.add h1 {
+  margin-bottom: 8px;
+}
+.add span {
+  color: #f00;
+}
+.add button {
+  border: none;
+  background-color: #fff;
+}
+.add .addGroup {
+  margin: 4px;
+  width: 200px;
+  height: 100%;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
+}
+.add .addGroup label {
+  margin-right: 8px;
 }
