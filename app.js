@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 const session = require("express-session");
+const passport = require("passport");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
@@ -30,9 +31,6 @@ db.once("open", () => {
   console.log("mongodb connected!");
 });
 
-app.use("/", require("./routes/home"));
-app.use("/records", require("./routes/record"));
-app.use("/users", require("./routes/user"));
 app.use(
   session({
     secret: "your secret key",
@@ -40,6 +38,20 @@ app.use(
     saveUninitialized: true
   })
 );
+app.use(passport.initialize());
+app.use(passport.session());
+
+// 載入 Passport config
+require("./config/passport")(passport);
+// 登入後可以取得使用者的資訊方便我們在 view 裡面直接使用
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
+});
+
+app.use("/", require("./routes/home"));
+app.use("/records", require("./routes/record"));
+app.use("/users", require("./routes/user"));
 
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
