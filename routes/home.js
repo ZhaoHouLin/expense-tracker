@@ -6,7 +6,7 @@ const { authenticated } = require("../config/auth"); // 載入 auth middleware �
 // 設定路由
 // Record 首頁
 router.get("/", authenticated, (req, res) => {
-  Record.find({})
+  Record.find({ userId: req.user._id })
     .sort({ name: "asc" })
     .exec((err, records) => {
       if (err) return console.error(err);

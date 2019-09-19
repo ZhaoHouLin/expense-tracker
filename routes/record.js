@@ -13,8 +13,8 @@ router.get("/new", authenticated, (req, res) => {
 
 // 新增一筆  Record
 router.post("/", authenticated, (req, res) => {
-  const record = new Record({
-    // userId: req.body.id,
+  const record = Record({
+    userId: req.user._id, // 儲存 userId
     name: req.body.name,
     category: req.body.category,
     date: req.body.date,
@@ -27,34 +27,44 @@ router.post("/", authenticated, (req, res) => {
 });
 // 修改 Record 頁面
 router.get("/:id/edit", authenticated, (req, res) => {
-  Record.findById(req.params.id, (err, record) => {
-    if (err) return console.error(err);
-    return res.render("edit", { record: record });
-  });
+  // 要判斷是否為當前使用者的 Record
+  Record.findOne(
+    { _id: req.params.id, userId: req.user._id },
+    (err, record) => {
+      if (err) return console.error(err);
+      return res.render("edit", { record: record });
+    }
+  );
 });
 // 修改 Record
 router.put("/:id", authenticated, (req, res) => {
-  Record.findById(req.params.id, (err, record) => {
-    if (err) return console.error(err);
-    record.name = req.body.name;
-    category = req.body.category;
-    date = req.body.date;
-    amount = req.body.amount;
-    record.save(err => {
+  Record.findOne(
+    { _id: req.params.id, userId: req.user._id },
+    (err, record) => {
       if (err) return console.error(err);
-      return res.redirect(`/records/${req.params.id}`);
-    });
-  });
+      record.name = req.body.name;
+      category = req.body.category;
+      date = req.body.date;
+      amount = req.body.amount;
+      record.save(err => {
+        if (err) return console.error(err);
+        return res.redirect(`/records/${req.params.id}`);
+      });
+    }
+  );
 });
 // 刪除 Record
 router.delete("/:id/delete", authenticated, (req, res) => {
-  Record.findById(req.params.id, (err, record) => {
-    if (err) return console.error(err);
-    record.remove(err => {
+  Record.findOne(
+    { _id: req.params.id, userId: req.user._id },
+    (err, record) => {
       if (err) return console.error(err);
-      return res.redirect("/");
-    });
-  });
+      record.remove(err => {
+        if (err) return console.error(err);
+        return res.redirect("/");
+      });
+    }
+  );
 });
 
 module.exports = router;
