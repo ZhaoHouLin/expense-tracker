@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3001;
+const port = 3000;
 const exphbs = require("express-handlebars");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -18,7 +18,8 @@ app.use(methodOverride("_method"));
 
 mongoose.connect("mongodb://localhost/record", {
   useNewUrlParser: true,
-  useCreateIndex: true
+  useCreateIndex: true,
+  useUnifiedTopology: true
 });
 
 const db = mongoose.connection;
