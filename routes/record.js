@@ -40,7 +40,7 @@ router.get("/:id/edit", (req, res) => {
   });
 });
 // 修改 Record
-router.post("/:id/edit", (req, res) => {
+router.put("/:id", (req, res) => {
   Record.findById(req.params.id, (err, record) => {
     if (err) return console.error(err);
     record.name = req.body.name;
@@ -54,7 +54,7 @@ router.post("/:id/edit", (req, res) => {
   });
 });
 // 刪除 Record
-router.post("/:id/delete", (req, res) => {
+router.delete("/:id/delete", (req, res) => {
   Record.findById(req.params.id, (err, record) => {
     if (err) return console.error(err);
     record.remove(err => {
