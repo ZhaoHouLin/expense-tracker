@@ -5,6 +5,7 @@ const exphbs = require("express-handlebars");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
+const session = require("express-session");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
@@ -32,6 +33,13 @@ db.once("open", () => {
 app.use("/", require("./routes/home"));
 app.use("/records", require("./routes/record"));
 app.use("/users", require("./routes/user"));
+app.use(
+  session({
+    secret: "your secret key",
+    resave: false,
+    saveUninitialized: true
+  })
+);
 
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
