@@ -32,7 +32,9 @@
 
 <div class="itemlist">
   {{#each records}}
-  <div class="item"><i class="fas fa-shuttle-van"></i>
+  <div class="item">
+    <i class="fas fa-shuttle-van"></i>
+    <h2>{{{this.name}}}</h2>
     <div class="info">
       <label>{{{this.category}}}</label><span>{{{this.date}}}</span>
     </div>

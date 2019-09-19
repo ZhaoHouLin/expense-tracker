@@ -2,10 +2,6 @@ const express = require("express");
 const router = express.Router();
 const Record = require("../models/record");
 
-router.get("/", (req, res) => {
-  res.send("列出所有Record");
-});
-
 // 列出全部 Record
 router.get("/", (req, res) => {
   res.send("列出所有 Record");
