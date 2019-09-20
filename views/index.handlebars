@@ -1,31 +1,37 @@
 <div class="total">
   <label>總金額:</label>
   <h1>{{{totalResult}}}</h1>
-  <div class="filter">
-    <select name="">
-      <option value="">全部月份</option>
-      <option value="1">一月</option>
-      <option value="2">二月</option>
-      <option value="3">三月</option>
-      <option value="4">四月</option>
-      <option value="5">五月</option>
-      <option value="6">六月</option>
-      <option value="7">七月</option>
-      <option value="8">八月</option>
-      <option value="9">九月</option>
-      <option value="10">十月</option>
-      <option value="11">十一月</option>
-      <option value="12">十二月</option>
-    </select>
-    <select name="">
-      <option value="">不分類別</option>
-      <option value="">家居物業 </option>
-      <option value="">交通出行</option>
-      <option value="">休閒娛樂 </option>
-      <option value="">餐飲食品</option>
-      <option value="">其他</option>
-    </select>
-  </div>
+  <form action="/" method="POST">
+
+    <div class="filter">
+      <select name="">
+        <option value="">全部月份</option>
+        <option value="1">一月</option>
+        <option value="2">二月</option>
+        <option value="3">三月</option>
+        <option value="4">四月</option>
+        <option value="5">五月</option>
+        <option value="6">六月</option>
+        <option value="7">七月</option>
+        <option value="8">八月</option>
+        <option value="9">九月</option>
+        <option value="10">十月</option>
+        <option value="11">十一月</option>
+        <option value="12">十二月</option>
+      </select>
+      <select name="">
+        <option value="">不分類別</option>
+        <option value="">家居物業 </option>
+        <option value="">交通出行</option>
+        <option value="">休閒娛樂 </option>
+        <option value="">餐飲食品</option>
+        <option value="">其他</option>
+      </select>
+      {{!-- <a href="/records/new" class="btn btn-primary mb-3">篩選</a> --}}
+      <button type="submit" class="btn btn-secondary ml-2">篩選</button>
+    </div>
+
+  </form>
   <a href="/records/new" class="btn btn-primary mb-3">新增支出</a>
 </div>
 
@@ -33,7 +39,8 @@
 <div class="itemlist">
   {{#each records}}
   <div class="item">
-    <i class="fas fa-shuttle-van"></i>
+    {{!-- <i class="fas fa-shuttle-van"></i> --}}
+    <i class="{{{iconCategory}}}"></i>
     <h2>{{{this.name}}}</h2>
     <div class="info">
       <label>{{{this.category}}}</label><span>{{{this.date}}}</span>

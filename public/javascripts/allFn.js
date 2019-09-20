@@ -4,6 +4,13 @@ const allFn = {
     let result = 0;
     recordsData.forEach(record => (result += record.amount));
     return result;
+  },
+
+  icon: function(recordsData, categories) {
+    recordsData.forEach(record => {
+      // return categories[record.category].icon;
+    });
+    // return recordsData;
   }
 };
 
