@@ -21,9 +21,9 @@
       </select>
       <select name="">
         <option value="">不分類別</option>
-        <option value="">家居物業 </option>
+        <option value="">家居物業</option>
         <option value="">交通出行</option>
-        <option value="">休閒娛樂 </option>
+        <option value="">休閒娛樂</option>
         <option value="">餐飲食品</option>
         <option value="">其他</option>
       </select>
@@ -40,7 +40,7 @@
   {{#each records}}
   <div class="item">
     {{!-- <i class="fas fa-shuttle-van"></i> --}}
-    <i class="{{{iconCategory}}}"></i>
+    <i class="{{{this.icon}}}"></i>
     <h2>{{{this.name}}}</h2>
     <div class="info">
       <label>{{{this.category}}}</label><span>{{{this.date}}}</span>
