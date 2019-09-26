@@ -11,10 +11,7 @@ router.get("/", authenticated, (req, res) => {
     .sort({ name: "asc" })
     .exec((err, records) => {
       const totalResult = allFn.totalAmount(records); //計算總支出
-      // const iconCategories = allFn.iconCategory(records, categories);
-      records.forEach(record => {
-        record.icon = categories[record.category].icon;
-      });
+      allFn.icons(records); //icon呈現
 
       if (err) return console.error(err);
       return res.render("index", {
