@@ -10,9 +10,10 @@ router.get("/", authenticated, (req, res) => {
   Record.find({ userId: req.user._id })
     .sort({ name: "asc" })
     .exec((err, records) => {
+      console.log(records);
       const totalResult = allFn.totalAmount(records); //計算總支出
       allFn.icons(records); //icon呈現
-
+      allFn.formatTime(records); //Date格式呈現
       if (err) return console.error(err);
       return res.render("index", {
         records,

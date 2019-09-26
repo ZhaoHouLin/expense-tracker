@@ -6,28 +6,33 @@ const allFn = {
     return result;
   },
   icons: function(recordsData) {
-    for (let i = 0; i < recordsData.length; i++) {
-      switch (recordsData[i].category) {
+    recordsData.forEach(record => {
+      switch (record.category) {
         case "家居物業":
-          recordsData[i].icon = "fas fa-home";
+          record.icon = "fas fa-home";
           break;
         case "交通出行":
-          recordsData[i].icon = "fas fa-shuttle-van";
+          record.icon = "fas fa-shuttle-van";
           break;
         case "休閒娛樂":
-          recordsData[i].icon = "fas fa-grin-beam";
+          record.icon = "fas fa-grin-beam";
           break;
         case "餐飲食品":
-          recordsData[i].icon = "fas fa-utensils";
+          record.icon = "fas fa-utensils";
           break;
         case "其他":
-          recordsData[i].icon = "fas fa-pen";
+          record.icon = "fas fa-pen";
           break;
         default:
           console.log("沒有此類別");
           break;
       }
-    }
+    });
+  },
+  formatTime: function(recordsData) {
+    recordsData.forEach(record => {
+      record.formatDate = record.date.toISOString().slice(0, 10);
+    });
   }
 };
 
